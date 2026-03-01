@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Результаты распознавания</title>
+    <style>
+        table { border-collapse: collapse; width: 50%; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>Результаты анализа</h1>
+    <table>
+        <tr>
+            <th>Дефект</th>
+            <th>Вероятность</th>
+        </tr>
+        {% for name, prob in predictions %}
+        <tr>
+            <td>{{ name }}</td>
+            <td>{{ "%.2f"|format(prob*100) }}%</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="/">⬅ Загрузить другое изображение</a>
+</body>
+</html>
